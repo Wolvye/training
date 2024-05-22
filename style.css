@@ -1,0 +1,18 @@
+.divContainer1{
+    min-height: 100vh;
+    background-color:aqua ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-footer{
+    border-top: 1px solid rgba(0, 0,0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+}
+.quiz-card{
+    width: 30rem;
+}
