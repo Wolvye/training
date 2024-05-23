@@ -66,11 +66,16 @@ function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQustionNumber = selection.slice(-1);
 
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+
     if (selectedQustionNumber == question['right_answer']) {
         console.log('Richtig');
         document.getElementById(selection).parentNode.classList.add('bg-success');
 
-    } else
+    } else{
         console.log('falsch');
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+
+    } document.getElementById('nextButton').disabled = false;
 }
