@@ -1,5 +1,5 @@
 let questions = [
-    {   
+    {
         "question": "Wie lautet der Ruf der Night Lords?",
         "answer1": "Ave Dominatus Nox",
         "answer2": "Ave Dominus Nox",
@@ -8,7 +8,7 @@ let questions = [
         "right_answer": 2
 
     },
-    {   
+    {
         "question": "Wie lautet der Ruf der Iron Warrios?",
         "answer1": "Eisern im Innern, eisern nach außen!",
         "answer2": "Eisen nach außen, eisern nach innen!",
@@ -17,7 +17,7 @@ let questions = [
         "right_answer": 1
 
     },
-    {   
+    {
         "question": "Wie lautet der Ruf der Iron Hands?",
         "answer1": "Eisern im Innern, eisern nach außen!",
         "answer2": "Eisen nach außen, eisern nach innen!",
@@ -26,7 +26,7 @@ let questions = [
         "right_answer": 3
 
     },
-    {   
+    {
         "question": "Wie lautet der Ruf der Salamanders?",
         "answer1": "Auf den Amboss des Krieges! Für den Imperator!",
         "answer2": "Auf den Amboss des Krieges!Ins Feuer der Schlacht!",
@@ -35,7 +35,7 @@ let questions = [
         "right_answer": 4
 
     },
-    {   
+    {
         "question": "Wie lautet der Ruf der Chorcaradons?",
         "answer1": "Burn, Maim, Kill!",
         "answer2": "First in, last out",
@@ -46,14 +46,14 @@ let questions = [
     }
 ];
 
-let currentQuestion=0;
+let currentQuestion = 0;
 
-function init(){
+function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
     showQuestion()
 }
 
-function showQuestion(){
+function showQuestion() {
     let question = questions[currentQuestion];
     document.getElementById('questiontext').innerHTML = question['question'];
     document.getElementById('answer1').innerHTML = question['answer1'];
@@ -62,6 +62,15 @@ function showQuestion(){
     document.getElementById('answer4').innerHTML = question['answer4'];
 }
 
-function answer(selection){
-    
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQustionNumber = selection.slice(-1);
+
+    if (selectedQustionNumber == question['right_answer']) {
+        console.log('Richtig');
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+
+    } else
+        console.log('falsch');
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
 }
