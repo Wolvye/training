@@ -45,8 +45,10 @@ let questions = [
 
     }
 ];
-
+let rightQuestions = 0;
 let currentQuestion = 0;
+let successAudio = new Audio("/audio/success.mp3");
+let failAudio = new Audio("/audio/fail.mp3");
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
@@ -54,28 +56,83 @@ function init() {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer1').innerHTML = question['answer1'];
-    document.getElementById('answer2').innerHTML = question['answer2'];
-    document.getElementById('answer3').innerHTML = question['answer3'];
-    document.getElementById('answer4').innerHTML = question['answer4'];
+
+    if (currentQuestion >= questions.length) {
+        
+        document.getElementById('endscreen').style = '';
+        document.getElementById('questionBody').style = 'display:none;';
+
+        document.getElementById('amountOfQuestions').innerHTML = questions.length;
+        document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+        document.getElementById('gold').classList.add("dNone");
+        document.getElementById('headerIMG').src = "./img/trophy.png";
+        
+
+
+    } else {
+        let question = questions[currentQuestion];
+        
+        document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
+        document.getElementById('questiontext').innerHTML = question['question'];
+        document.getElementById('answer1').innerHTML = question['answer1'];
+        document.getElementById('answer2').innerHTML = question['answer2'];
+        document.getElementById('answer3').innerHTML = question['answer3'];
+        document.getElementById('answer4').innerHTML = question['answer4'];
+
+    }
 }
 
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQustionNumber = selection.slice(-1);
 
-    let idOfRightAnswer = `answer_${question['right_answer']}`;
+    let idOfRightAnswer = `answer${question['right_answer']}`;
 
     if (selectedQustionNumber == question['right_answer']) {
-        console.log('Richtig');
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        successAudio.play();
+        rightQuestions++;
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = Math.round(percent * 100);
+        document.getElementById('progressBarID').innerHTML = `${percent}%`;
+        document.getElementById('progressBarID').style = `width:${percent}%;`;
 
-    } else{
-        console.log('falsch');
-    document.getElementById(selection).parentNode.classList.add('bg-danger');
-    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+    } else {
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = Math.round(percent * 100);
+        failAudio.play();
+        document.getElementById('progressBarID').innerHTML = `${percent}%`;
+        document.getElementById('progressBarID').style = `width:${percent}%;`;
+        console.log('Fortschriftt', percent)
 
-    } document.getElementById('nextButton').disabled = false;
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+
+    }
+    document.getElementById('nextButton').disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+    resetAnswerButtons()
+    showQuestion();
+
+
+}
+
+function resetAnswerButtons() {
+    document.getElementById('nextButton').disabled = true;
+    document.getElementById('answer1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer4').parentNode.classList.remove('bg-success');
+
+}
+
+function restartButton() {
+    window.location.reload();
 }
