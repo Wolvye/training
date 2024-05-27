@@ -1,0 +1,71 @@
+#contant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+body {
+    margin: 0; 
+} 
+
+h1 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+@keyframes fillCircle {
+    from {
+        stroke-dashoffset: 188.4;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+} 
+
+@keyframes drawX { 
+    from { 
+        stroke-dashoffset: 84;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animated-circle {
+    animation: fillCircle 0.55s ease-out forwards;
+}
+
+.animated-x line {
+    stroke-dasharray: 84;
+    stroke-dashoffset: 84;
+    animation: drawX 0.55s ease-out forwards;
+}
+
+.winning-line {
+    position: absolute;
+    height: 5px;
+    background-color: black;
+    z-index: 10;
+    transform-origin: left center;
+}
