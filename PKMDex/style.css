@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    display: flex;
+}
+
+.MonsterCard{
+    padding: 5%;
+    margin: 5%;
+
+}
+.MonsterName  {
+    text-transform: capitalize;
+}
+.MonsterType1{
+    text-transform: capitalize;
+}
+.MonsterType2{
+    text-transform: capitalize;
+}
+.card{
+    margin-top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
