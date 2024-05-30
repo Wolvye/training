@@ -1,10 +1,11 @@
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0";
 let responseToJson;
 let allPKM = [];
 
 async function init() {
     await loadPKM();
     render();
+    addTypeColor()
 }
 
 async function loadPKM(path = "") {
@@ -29,6 +30,7 @@ function render() {
     content.innerHTML = "";
 
     for (let pkm of allPKM) {
+        
         content.innerHTML += `
             <div class="card">
                 <img src="${pkm.img}" class="MonsterPic">
@@ -40,4 +42,10 @@ function render() {
     }
 }
 
+function addTypeColor(){
+    
+    if (pkm.types[0]==grass) {
+        MonsterCardID.classList.add("TypeColor-Grass");    
+    }
 
+}

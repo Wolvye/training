@@ -1,25 +1,101 @@
-body{
+body {
     margin: 0;
+    background-color: #212121;
     display: flex;
 }
 
-.MonsterCard{
+.MonsterCard {
     padding: 5%;
     margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.MonsterName {
+    text-transform: capitalize;
+}
+
+.MonsterType1 {
+    text-transform: capitalize;
+}
+
+.MonsterType2 {
+    text-transform: capitalize;
+}
+
+.MonsterBodyClass {
+    display: flex;
 
 }
-.MonsterName  {
-    text-transform: capitalize;
+.card {
+    width: 250px;
+    margin: 20px;
+    box-sizing: border-box; /* Bezieht Padding und Border in die Breite mit ein */
+    border: 5px solid #ccc; /* Optional: Rand der Karte */
+    border-radius: 10px; /* Optional: abgerundete Ecken */
+    overflow: hidden; /* Optional: Verhindert Überlauf von Inhalten */
+    background-color: white; /* Optional: Hintergrundfarbe der Karte */
+    text-align: center; /* Optional: Zentrieren des Inhalts */
 }
-.MonsterType1{
-    text-transform: capitalize;
+.card img{
+    height: 150px;
 }
-.MonsterType2{
-    text-transform: capitalize;
+.card-title{
+    font-size: 25px;
 }
-.card{
-    margin-top: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
-    
+
+.TypeColor-Bug{
+    background-color: #88950A;
 }
+.TypeColor-Dark{
+    background-color:#51392E;
+}
+.TypeColor-Dragon{
+    background-color:#735CDE;
+}
+.TypeColor-Electric{
+    background-color:#E49500;
+}
+.TypeColorFairy{
+    background-color:#F4ACF6;
+}
+.TypeColor-Fighting{
+    background-color:#80321D;
+}
+.TypeColor-Fire{
+    background-color:#ED3D10;
+}
+.TypeColor-Fly{
+    background-color:#667EDA;
+}
+.TypeColor-Ghost{
+    background-color:#5C5FAF;
+}
+.TypeColor-Grass{
+    background-color:#6CBF31;
+}
+.TypeColor-Ground{
+    background-color:#CCAC54;
+}
+.TypeColor-Ice{
+    background-color:#70D4F5;
+}
+.TypeColor-Normal{
+    background-color:#C7C1B8;
+}
+.TypeColor-Poisen{
+    background-color:#924392;
+}
+.TypeColor-Psychic{
+    background-color:#EA447F;
+}
+.TypeColor-Rock{
+    background-color:#9D873A;
+}
+.TypeColor-Steel{
+    background-color:#B5B5C2;
+}
+.TypeColor-Water{
+    background-color:#3495F5;
+}
+
