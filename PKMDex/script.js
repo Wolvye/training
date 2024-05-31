@@ -33,7 +33,7 @@ function render() {
         let pkm = allPKM[i];
         counter++;
         content.innerHTML += `
-            <div class="card ${counter}" id="cardID">
+            <div class="card ${counter}" id="cardID" onclick="openPKM()">
                 <img src="${pkm.img}" class="MonsterPic">
                 <h5 class="MonsterName card-title">${pkm.name}</h5>
                 <div class="MonsterType1">${pkm.types[0]}</div>
@@ -92,3 +92,10 @@ function addTypeColor() {
 }
 
 
+function openPKM(){
+    document.getElementById('dialog-bgID').classList.remove('d-none');
+}
+function closePKM(){
+    document.getElementById('dialog-bgID').classList.add('d-none');
+
+}

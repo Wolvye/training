@@ -28,81 +28,142 @@ body {
     display: flex;
 
 }
+
 .card {
     width: 250px;
     margin: 20px;
-    box-sizing: border-box; /* Bezieht Padding und Border in die Breite mit ein */
-    border: 5px solid #ccc; /* Optional: Rand der Karte */
-    border-radius: 10px; /* Optional: abgerundete Ecken */
-    overflow: hidden; /* Optional: Verhindert Überlauf von Inhalten */
-    background-color: white; /* Optional: Hintergrundfarbe der Karte */
-    text-align: center; /* Optional: Zentrieren des Inhalts */
+    box-sizing: border-box;
+    /* Bezieht Padding und Border in die Breite mit ein */
+    border: 5px solid #ccc;
+    /* Optional: Rand der Karte */
+    border-radius: 10px;
+    /* Optional: abgerundete Ecken */
+    overflow: hidden;
+    /* Optional: Verhindert Überlauf von Inhalten */
+    background-color: white;
+    /* Optional: Hintergrundfarbe der Karte */
+    text-align: center;
+    /* Optional: Zentrieren des Inhalts */
 }
-.card img{
+
+.card img {
     height: 150px;
 }
-.card-title{
+
+.card-title {
     font-size: 25px;
 }
-.card:hover{
+
+.card:hover {
     transform: scale(1.1);
     filter: brightness(90%);
     cursor: pointer;
 
 
 }
-.TypeColor-Bug{
+
+.TypeColor-Bug {
     background-color: #88950A;
 }
-.TypeColor-Dark{
-    background-color:#51392E;
-}
-.TypeColor-Dragon{
-    background-color:#735CDE;
-}
-.TypeColor-Electric{
-    background-color:#E49500;
-}
-.TypeColor-Fairy{
-    background-color:#F4ACF6;
-}
-.TypeColor-Fighting{
-    background-color:#80321D;
-}
-.TypeColor-Fire{
-    background-color:#ED3D10;
-}
-.TypeColor-Fly{
-    background-color:#667EDA;
-}
-.TypeColor-Ghost{
-    background-color:#5C5FAF;
-}
-.TypeColor-Grass{
-    background-color:#6CBF31;
-}
-.TypeColor-Ground{
-    background-color:#CCAC54;
-}
-.TypeColor-Ice{
-    background-color:#70D4F5;
-}
-.TypeColor-Normal{
-    background-color:#C7C1B8;
-}
-.TypeColor-Poisen{
-    background-color:#924392;
-}
-.TypeColor-Psychic{
-    background-color:#EA447F;
-}
-.TypeColor-Rock{
-    background-color:#9D873A;
-}
-.TypeColor-Steel{
-    background-color:#B5B5C2;
-}
-.TypeColor-Water{
-    background-color:#3495F5;
+
+.TypeColor-Dark {
+    background-color: #51392E;
 }
 
+.TypeColor-Dragon {
+    background-color: #735CDE;
+}
+
+.TypeColor-Electric {
+    background-color: #E49500;
+}
+
+.TypeColor-Fairy {
+    background-color: #F4ACF6;
+}
+
+.TypeColor-Fighting {
+    background-color: #80321D;
+}
+
+.TypeColor-Fire {
+    background-color: #ED3D10;
+}
+
+.TypeColor-Fly {
+    background-color: #667EDA;
+}
+
+.TypeColor-Ghost {
+    background-color: #5C5FAF;
+}
+
+.TypeColor-Grass {
+    background-color: #6CBF31;
+}
+
+.TypeColor-Ground {
+    background-color: #CCAC54;
+}
+
+.TypeColor-Ice {
+    background-color: #70D4F5;
+}
+
+.TypeColor-Normal {
+    background-color: #C7C1B8;
+}
+
+.TypeColor-Poisen {
+    background-color: #924392;
+}
+
+.TypeColor-Psychic {
+    background-color: #EA447F;
+}
+
+.TypeColor-Rock {
+    background-color: #9D873A;
+}
+
+.TypeColor-Steel {
+    background-color: #B5B5C2;
+}
+
+.TypeColor-Water {
+    background-color: #3495F5;
+}
+
+.dialog-bg{
+    background-color: 212121;
+    z-index: 999;
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dialog{
+    height: 50vh;
+    width: 50vh;
+    background-color: wheat;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+
+.d-none{
+    display: none;
+}
+
+@media screen and (min-device-width : 370px){
+
+   .MonsterCard {
+    padding: 1%;
+    margin: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+}
