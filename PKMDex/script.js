@@ -12,7 +12,8 @@ async function loadPKM(path = "") {
     let response = await fetch(BASE_URL);
     responseToJson = await response.json();
 
-    for (let pokemon of responseToJson.results) {
+    for (let i = 0; i < responseToJson.results.length; i++) {
+        let pokemon = responseToJson.results[i];
         let pokemonResponse = await fetch(pokemon.url);
         let pokemonData = await pokemonResponse.json();
 
@@ -27,9 +28,9 @@ async function loadPKM(path = "") {
 function render() {
     let content = document.getElementById("MonsterCardID");
     content.innerHTML = "";
-    let counter=0;
-    for (let pkm of allPKM) {
-       
+    let counter = 0;
+    for (let i = 0; i < allPKM.length; i++) {
+        let pkm = allPKM[i];
         counter++;
         content.innerHTML += `
             <div class="card ${counter}" id="cardID">
@@ -42,69 +43,52 @@ function render() {
     }
 }
 
+
 function addTypeColor() {
-    let counter=0;
+    let counter = 0;
     for (let pkm = 0; pkm < allPKM.length; pkm++) {
         counter++;
         let checkType = allPKM[pkm].types[0];
-
+        let card = document.getElementsByClassName(`card ${counter}`)[0];
 
         if (typeof checkType === 'string' && checkType.toLowerCase() === 'grass') {
-            document.getElementById("cardID").classList.add("TypeColor-Grass");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'bug') {
-            document.getElementById("cardID").classList.add("TypeColor-Bug");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'dark') {
-            document.getElementById("cardID").classList.add("TypeColor-Dark");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'dragon') {
-            document.getElementById("cardID").classList.add("TypeColor-Dragon");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'electric') {
-            document.getElementById("cardID").classList.add("TypeColor-Electric");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'fairy') {
-            document.getElementById("cardID").classList.add("TypeColor-Fairy");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'fighting') {
-            document.getElementById("cardID").classList.add("TypeColor-Fighting");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'fire') {
-            document.getElementById("cardID").classList.add("TypeColor-Fire");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'fly') {
-            document.getElementById("cardID").classList.add("TypeColor-Fly");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'ghost') {
-            document.getElementById("cardID").classList.add("TypeColor-Ghost");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'ground') {
-            document.getElementById("cardID").classList.add("TypeColor-Ground");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'ice') {
-            document.getElementById("cardID").classList.add("TypeColor-Ice");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'normal') {
-            document.getElementById("cardID").classList.add("TypeColor-Normal");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'poisen') {
-            document.getElementById("cardID").classList.add("TypeColor-Poisen");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'psychic') {
-            document.getElementById("cardID").classList.add("TypeColor-Psychic");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'rock') {
-            document.getElementById("cardID").classList.add("TypeColor-Rock");
-
-        } if (typeof checkType === 'string' && checkType.toLowerCase() === 'steel') {
-            document.getElementById("cardID").classList.add("TypeColor-Steel");
-
-        } else (typeof checkType === 'string' && checkType.toLowerCase() === 'water') 
-            document.getElementById("cardID").classList.add("TypeColor-Water");
-
+            card.classList.add("TypeColor-Grass");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'bug') {
+            card.classList.add("TypeColor-Bug");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'dark') {
+            card.classList.add("TypeColor-Dark");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'dragon') {
+            card.classList.add("TypeColor-Dragon");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'electric') {
+            card.classList.add("TypeColor-Electric");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'fairy') {
+            card.classList.add("TypeColor-Fairy");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'fighting') {
+            card.classList.add("TypeColor-Fighting");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'fire') {
+            card.classList.add("TypeColor-Fire");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'fly') {
+            card.classList.add("TypeColor-Fly");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'ghost') {
+            card.classList.add("TypeColor-Ghost");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'ground') {
+            card.classList.add("TypeColor-Ground");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'ice') {
+            card.classList.add("TypeColor-Ice");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'normal') {
+            card.classList.add("TypeColor-Normal");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'poison') {
+            card.classList.add("TypeColor-Poison");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'psychic') {
+            card.classList.add("TypeColor-Psychic");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'rock') {
+            card.classList.add("TypeColor-Rock");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'steel') {
+            card.classList.add("TypeColor-Steel");
+        } else if (typeof checkType === 'string' && checkType.toLowerCase() === 'water') {
+            card.classList.add("TypeColor-Water");
         }
     }
-
+}
 
 

@@ -11,6 +11,7 @@ body {
     flex-wrap: wrap;
 }
 
+
 .MonsterName {
     text-transform: capitalize;
 }
@@ -43,7 +44,13 @@ body {
 .card-title{
     font-size: 25px;
 }
+.card:hover{
+    transform: scale(1.1);
+    filter: brightness(90%);
+    cursor: pointer;
 
+
+}
 .TypeColor-Bug{
     background-color: #88950A;
 }
