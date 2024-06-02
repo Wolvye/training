@@ -14,8 +14,15 @@ body {
 
 .MonsterName {
     text-transform: capitalize;
+    margin: 5px;
+    border-bottom: 1px solid;
 }
 
+.typeBox{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid;
+}
 .MonsterType1 {
     text-transform: capitalize;
 }
@@ -145,15 +152,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 .dialog{
-    height: 50vh;
-    width: 50vh;
-    background-color: wheat;
+    height: 80vh;
+    width: 80vh;
     border-radius: 10px;
     border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 }
-
+.dialog img{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
 .d-none{
     display: none;
 }
