@@ -3,7 +3,15 @@ body {
     background-color: #212121;
     display: flex;
 }
-
+.FirstNavBar{
+    height: 28vh;
+    border: 3px solid white;
+    max-width: 100%;
+    display: flex;
+    background-image: url(img/pkmtitel.jpg);
+    border-radius: 12px;
+    
+}
 .MonsterCard {
     padding: 5%;
     margin: 5%;
@@ -32,19 +40,25 @@ body {
     text-transform: capitalize;
     border: solid 1px white;
     border-radius: 100px;
-    margin-bottom: 5px;
-    margin-left:35%;
-    margin-right: 35%;
+    padding: 2px;
+    margin: 2px;
+  
 }
 
 .MonsterType2 {
     text-transform: capitalize;
     border: solid 1px white;
     border-radius: 100px;
-    margin-left:35%;
-    margin-right: 35%;
+    padding: 2px;
+    margin: 2px;
+  
+   
 }
-
+.MonsterType1_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .MonsterBodyClass {
     display: flex;
 
@@ -154,6 +168,19 @@ body {
     background-color: #3495F5;
 }
 
+
+.DialogNavi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.ButtonClass {
+    width: 128px;
+    height: 48px;
+    border-radius: 12px;
+    margin: 15px;
+  }
 .dialog-bg{
     background-color: 212121;
     z-index: 999;
@@ -176,7 +203,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 40px auto;
-    color: #fff;
+    
     position: relative;
     padding: 10px;
     box-sizing: border-box;
@@ -198,13 +225,22 @@ body {
   left: -5px;
   right: -5px;
   bottom: -5px;
-  background: #fff;
+ 
   background: linear-gradient(0deg, #2196f3, #060c21, #F00000);
+
   border-radius: 8px;
+}
+.hp1{
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 .dialog img{
     
-    height: 200%;
+    height: 270px;
     width: 300px;
     display: flex;
     justify-content: center;

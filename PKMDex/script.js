@@ -1,4 +1,4 @@
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=14offset=0";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=15offset=0";
 let responseToJson;
 let allPKM = [];
 // const pokemonTypes = [
@@ -63,11 +63,13 @@ function render() {
         <div class="MonsterType2">${pkm.types[1].type.name}</div>` : '';  // Überprüfen ob ein zweiter Typ existiert
 
         content.innerHTML += `
+        
             <div class="card" id="cardID" onclick="openPKM(${i})">
                 <h5 class="MonsterName card-title">${pkm.name} #${pkmNumber}</h5>
-                
+                <div class="MonsterType1_2">
                 <div class="MonsterType1">${pkm.types[0].type.name}</div>
                 ${type2} 
+                </div>
                 <img src="${pkm.sprites.other.dream_world.front_default}" class="MonsterPic">
                 <div class="typeBox"></div>
             </div>
@@ -170,52 +172,67 @@ function openPKM(index) {
 }
 
 function closePKM() {
+    
     document.getElementById('dialog-bgID').classList.add('d-none');
+   
 }
 
 function bigCard(index) {
+    
+    event.stopPropagation();
     let bigCard = document.getElementById("dialog-bgID");
     bigCard.innerHTML = "";
-    let pkm = allPKM[index];
+    let pkm = allPKM[index]; 
     index++;
     let type2 = pkm.types[1] ? `
     <div class="MonsterType2">${pkm.types[1].type.name}</div>` : '';
 
     bigCard.innerHTML += `
+    <div class="DialogNavi">
+    <button onclick="openPKM(${index-2})" class="ButtonClass" id="leftButtonID">Back</button>
         <div class="dialog " >
-      
+        <div class="hp1">HP ${pkm.stats[0].base_stat} </div>
+
             <div class="headline">
-                <h1 class="bigMonsterName MonsterName"> ${pkm.name}</h1> <div class=hp">${pkm.stats[0].stat.name} ${pkm.stats[0].base_stat} </div>
-                </div>
+                <h1 class="bigMonsterName MonsterName"> ${pkm.name}</h1> 
+            </div>
+            <div class="MonsterType1_2">
                 <div class="MonsterType1">${pkm.types[0].type.name}</div>
                     ${type2} 
-                    <img src="${pkm.sprites.other.dream_world.front_default}" class="MonsterPic">
+            </div>
+                    <img id="BigCardID" src="${pkm.sprites.other.dream_world.front_default}" class="MonsterPic">
 
                     <div class="bottomCard">
+
                     <div class="MetaDaten" >#${index} Weight: ${pkm.weight}lb Height: ${pkm.height*10}cm</div>
-                   
                         <div class="stats">
-                                <h2>Statuswerte</h2>
-                                <div class="hp ">${pkm.stats[0].stat.name} ${pkm.stats[0].base_stat} <div>
-                                <div class="atk">${pkm.stats[1].stat.name} ${pkm.stats[1].base_stat} <div>
-                                <div class="def">${pkm.stats[2].stat.name} ${pkm.stats[2].base_stat} <div>
-                                <div class="spAtk">${pkm.stats[3].stat.name} ${pkm.stats[3].base_stat} <div>
-                                <div class="spDef">${pkm.stats[4].stat.name} ${pkm.stats[4].base_stat} <div>
-                                <div class="speed">${pkm.stats[5].stat.name} ${pkm.stats[5].base_stat} <div>
-                        </div>
-                 
+                            <h2>Statuswerte</h2>
+                            <div class="hp ">${pkm.stats[0].stat.name} ${pkm.stats[0].base_stat} </div>
+                            <div class="atk">${pkm.stats[1].stat.name} ${pkm.stats[1].base_stat} </div>
+                            <div class="def">${pkm.stats[2].stat.name} ${pkm.stats[2].base_stat} </div>
+                            <div class="spAtk">${pkm.stats[3].stat.name} ${pkm.stats[3].base_stat} </div>
+                            <div class="spDef">${pkm.stats[4].stat.name} ${pkm.stats[4].base_stat} </div>
+                            <div class="speed">${pkm.stats[5].stat.name} ${pkm.stats[5].base_stat} </div>
+                    </div>
+            </div> 
                         
+                       
+                         
                         
            
                 </div>
-          
+                
                
            
             </div>
+        
         </div>
+        <button onclick="openPKM(${index})"  class="ButtonClass" id="rightButtonID" >Next</button>
+    </div>    
     `;
 }
 
 
 
-
+ 
+ 
