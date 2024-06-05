@@ -8,8 +8,9 @@ body {
     border: 3px solid white;
     max-width: 100%;
     display: flex;
-    background-image: url(img/pkmtitel.jpg);
+    background-image: url(./img/pkmtitel.jpg);
     border-radius: 12px;
+    color: wheat;
     
 }
 .MonsterCard {
@@ -304,6 +305,12 @@ body {
     transform: scale(1.1);
     filter: brightness(90%);
     font-weight: bold;
+}  
+.search{
+    height: 100px;
+    border: 1px solid white;
+    background-color: beige;
+    border-radius: 12px;
 }
 
 @media screen and (min-device-width : 370px){
