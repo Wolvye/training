@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
     template:`
     <section>
-    <h1>SAKURA RAMEN</h1>
-    <h2>BEST RAMEN IN TOWN </h2>
+    <h1 class="fontRaleway">SAKURA RAMEN</h1>
+    <h2 class="fontRaleway">BEST RAMEN IN TOWN </h2>
     </section>
     `,
-    styleUrls:['Sakura/src/app/landingPage/landingPage.component.scss']
+    styleUrls:['./landingPage.component.scss']
 })
 export class LandingPageComponent {
 
