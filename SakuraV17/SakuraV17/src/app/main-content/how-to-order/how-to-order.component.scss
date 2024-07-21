@@ -1,0 +1,29 @@
+
+h1{
+    font-size: 80px;
+    color: #9F0908;
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 64px;
+}
+.orderMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    >div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 56px;
+        font-weight: bold;
+    
+       
+        >img{
+            height: 128px;
+            width: 128px;
+            padding-bottom: 16px;
+        }
+    }
+  
+}

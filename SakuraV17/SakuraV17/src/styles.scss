@@ -33,11 +33,41 @@
     src: url('./assets/fonts/raleway-v34-latin-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
  
-
+  @font-face  {
+    font-family: "Economica", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  }
+  
+  @font-face  {
+    font-family: "Economica", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  }
+  
+  @font-face  {
+    font-family: "Economica", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    src: url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  }
+  
+  @font-face  {
+    font-family: "Economica", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    src: url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  }
+  
   .fontRaleway{
     font-family: 'Raleway';
   }
+  
   body{
     margin: 0;
-
+    scroll-behavior: smooth;
   }
+
+  
