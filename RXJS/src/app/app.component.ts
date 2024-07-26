@@ -14,9 +14,11 @@ export class AppComponent implements OnInit {
   title = 'RXJS';
   timer = new BehaviorSubject<number>(0);
 
+  //throttle-verzögerer, dadruch wird nur jede zweite Sekunde was ausgegeben, 
+    //obwohl unten alle 100milsek was arbeitet.
   ngOnInit() {
     this.timer
-    .pipe(throttle(val => interval(2000)))
+    .pipe(throttle(val => interval(2000))) 
     .subscribe((timePassed) =>{
       console.log(timePassed);
   });
