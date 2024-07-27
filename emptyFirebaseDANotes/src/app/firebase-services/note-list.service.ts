@@ -20,7 +20,7 @@ export class NoteListService {
 
     this.unsubList = onSnapshot(this.getNotesRef(), (list) => {
       list.forEach(element => {
-        console.log(element);
+        console.log(element.id);
       });
     });
 
