@@ -1,10 +1,16 @@
-
 @for (post of posts; track $index) {
 
-<div>
+<div class="post">
     <div> {{post.Name}}</div>
-    <div> {{post.imgPath}}</div>
-    <img src="{{post.imgPath}}" alt="different pics">
+    <img class="pic" src="{{post.imgPath}}" alt="different pics">
+    @if (post.isliked) {
+    <img class="heart" (click)="toggleLiked($index)" src="./assets/img/heart-red.png" alt="">
+    }@else{
+    <img class="heart" (click)="toggleLiked($index)" src="./assets/img/heart-black.png" alt="">
+    }
+    <div>{{post.likeCounter}}</div>
 </div>
 
 }
+
+<a [routerLink]="['/contact']">to contact</a>
