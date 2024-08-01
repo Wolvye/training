@@ -1,15 +1,23 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SinglepostComponent } from "../singlepost/singlepost.component";
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, SinglepostComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  posts = [{
+  posts: {
+    Name: string;
+    imgPath: string;
+    likeCounter: number;
+    isliked: boolean; 
+
+  } []=[{
+
     Name: "Hansi",
     imgPath: "./assets/img/banana.jpg",
     likeCounter: 123,
@@ -29,14 +37,4 @@ export class MainComponent {
   },
 
   ];
-  toggleLiked(index: number) {
-    if (this.posts[index].isliked) {
-      this.posts[index].isliked = false;
-      this.posts[index].likeCounter-=1;
-
-    } else {
-      this.posts[index].isliked = true;
-      this.posts[index].likeCounter+=1;
-    }
-  }
 }

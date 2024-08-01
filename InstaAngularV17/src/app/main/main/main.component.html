@@ -1,15 +1,6 @@
-@for (post of posts; track $index) {
 
-<div class="post">
-    <div> {{post.Name}}</div>
-    <img class="pic" src="{{post.imgPath}}" alt="different pics">
-    @if (post.isliked) {
-    <img class="heart" (click)="toggleLiked($index)" src="./assets/img/heart-red.png" alt="">
-    }@else{
-    <img class="heart" (click)="toggleLiked($index)" src="./assets/img/heart-black.png" alt="">
-    }
-    <div>{{post.likeCounter}}</div>
-</div>
+@for (post of posts; track $index) {
+    <app-singlepost [singlepost]="post"></app-singlepost>
 
 }
 
