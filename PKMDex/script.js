@@ -10,7 +10,7 @@ async function init() {
 }
 
 function filterNames() {
-    let search = document.getElementById("search").value;
+    let search = document.getElementById('search').value;
     search = search.toLowerCase();
     console.log(search);
 
