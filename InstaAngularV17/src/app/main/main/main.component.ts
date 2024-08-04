@@ -15,6 +15,7 @@ export class MainComponent {
     imgPath: string;
     likeCounter: number;
     isliked: boolean; 
+    comments:string[];
 
   } []=[{
 
@@ -22,19 +23,27 @@ export class MainComponent {
     imgPath: "./assets/img/banana.jpg",
     likeCounter: 123,
     isliked: false,
+    comments:["tolle wurst"],
   },
   {
     Name: "Petri",
     imgPath: "./assets/img/currant.jpg",
     likeCounter: 555,
     isliked: false,
+    comments:[],
   },
   {
     Name: "Dieter",
     imgPath: "./assets/img/orange.jpg",
     likeCounter: 666,
     isliked: true,
+    comments:["nix los Arbeitslos"]
   },
 
   ];
+ 
+
+  addItem(newComment: string , index: number) {
+    this.posts[index].comments.push(newComment);
+  }
 }

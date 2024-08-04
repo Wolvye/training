@@ -6,3 +6,13 @@
   }@else{
     <img (click)="toggleLike(singlepost)" src="./assets/img/heart-black.png">
   }
+
+  <label for="item-input">Add an item:</label>
+<input type="text" id="item-input" #newItem>
+<button type="button" (click)="addNewItem(newItem.value)">Add to parent's list</button>
+
+<div [ngClass]="{'comments': singlepost.comments.length>0}">
+  @for (comment of singlepost.comments; track $index){
+    <p>Kommentar {{$index}}:{{comment}}</p>
+  }
+</div>

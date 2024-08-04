@@ -1,6 +1,6 @@
 
 @for (post of posts; track $index) {
-    <app-singlepost [singlepost]="post"></app-singlepost>
+    <app-singlepost [singlepost]="post" (newItemEvent)="addItem($event,$index)"></app-singlepost>
 
 }
 
