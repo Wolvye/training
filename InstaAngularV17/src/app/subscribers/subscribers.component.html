@@ -1,0 +1,10 @@
+@for (abo of abos.subscribers; track $index) {
+
+<div><b> {{abo.name}}</b></div>
+@if (abo.followsYou) {
+    <p>folgt dir</p>
+}@else {
+    <p>folgt dir nicht</p>
+}
+
+}

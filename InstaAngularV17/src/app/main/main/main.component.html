@@ -1,7 +1,7 @@
 
 @for (post of posts; track $index) {
     <app-singlepost [singlepost]="post" (newItemEvent)="addItem($event,$index)"></app-singlepost>
-
+    <app-subscribers></app-subscribers>
 }
 
 <a [routerLink]="['/contact']">to contact</a>
