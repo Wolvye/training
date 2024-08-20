@@ -125,7 +125,7 @@ body {
     background-color: #ED3D10;
 }
 
-.TypeColor-Fly {
+.TypeColor-Flying {
     background-color: #667EDA;
 }
 
@@ -307,10 +307,12 @@ body {
     font-weight: bold;
 }  
 .search{
-    height: 100px;
+    height: 50px;
     border: 1px solid white;
     background-color: beige;
     border-radius: 12px;
+    width: 250px;
+ 
 }
 
 @media screen and (min-device-width : 370px){

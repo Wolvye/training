@@ -7,23 +7,22 @@ async function init() {
     render();
     addTypeColor();
     filterNames();
+
 }
 
 function filterNames() {
-    let search = document.getElementById('search').value;
-    search = search.toLowerCase();
-    console.log(search);
-
+    let search = document.getElementById('search').value.toLowerCase();
     let list = document.getElementById('MonsterCardID');
     list.innerHTML = '';
-    for (let i = 0; i < allPKM.length; i++) { 
+
+    for (let i = 0; i < allPKM.length; i++) {
         let pkm = allPKM[i];
         if (typeof pkm.name === 'string' && pkm.name.toLowerCase().includes(search)) {
-            let pkmNumber = i + 1; 
+            let pkmNumber = i + 1;
+            let type2 = pkm.types[1] ? `<div class="MonsterType2">${pkm.types[1].type.name}</div>` : '';
 
-            let type2 = pkm.types[1] ? `<div class="MonsterType2">${pkm.types[1].type.name}</div>` : ''; 
             list.innerHTML += `
-                <div class="card" id="cardID" onclick="openPKM(${i})">
+                <div class="card" data-index="${i}" onclick="openPKM(${i})">
                     <h5 class="MonsterName card-title">${pkm.name} #${pkmNumber}</h5>
                     <div class="MonsterType1_2">
                         <div class="MonsterType1">${pkm.types[0].type.name}</div>
@@ -37,16 +36,12 @@ function filterNames() {
     }
     addTypeColor();
 }
-    
+
 async function loadPKM() {
     let response = await fetch(BASE_URL);
     responseToJson = await response.json();
-
     let fetchPromises = responseToJson.results.map(pokemon => fetch(pokemon.url).then(res => res.json()));
-
-   
     allPKM = await Promise.all(fetchPromises);
-
     console.log(allPKM);
 }
 
@@ -59,11 +54,10 @@ function render() {
     for (let i = 0; i < allPKM.length; i++) {
         let pkm = allPKM[i];
         let pkmNumber = i + 1;
-
         let type2 = pkm.types[1] ? `<div class="MonsterType2">${pkm.types[1].type.name}</div>` : '';
 
         html += `
-            <div class="card" id="cardID" onclick="openPKM(${i})">
+            <div class="card" data-index="${i}" onclick="openPKM(${i})">
                 <h5 class="MonsterName card-title">${pkm.name} #${pkmNumber}</h5>
                 <div class="MonsterType1_2">
                     <div class="MonsterType1">${pkm.types[0].type.name}</div>
@@ -75,7 +69,6 @@ function render() {
         `;
     }
 
-  
     content.innerHTML = html;
     addTypeColor();
 }
@@ -90,7 +83,7 @@ function addTypeColor() {
         fairy: "TypeColor-Fairy",
         fighting: "TypeColor-Fighting",
         fire: "TypeColor-Fire",
-        flying: "TypeColor-Flying", 
+        flying: "TypeColor-Flying",
         ghost: "TypeColor-Ghost",
         ground: "TypeColor-Ground",
         ice: "TypeColor-Ice",
@@ -102,16 +95,15 @@ function addTypeColor() {
         water: "TypeColor-Water"
     };
 
-    for (let i = 0; i < allPKM.length; i++) {
-        let checkType = allPKM[i].types[0].type.name.toLowerCase();
-        let card = document.getElementsByClassName('card')[i];
-
-      
-        if (typeClasses[checkType]) {
+    allPKM.forEach((pkm, index) => {
+        let checkType = pkm.types[0].type.name.toLowerCase();
+        let card = document.getElementsByClassName('card')[index];
+        if (card && typeClasses[checkType]) {
             card.classList.add(typeClasses[checkType]);
         }
-    }
+    });
 }
+
 
 function addTypeColor2(index) {
     let checkType = allPKM[index].types[0].type.name.toLowerCase();
@@ -188,15 +180,15 @@ function bigCard(index) {
     <button onclick="openPKM(${index})" class="ButtonClass" id="rightButtonID">Next</button>
     `;
 
-    renderChart(index - 1); 
+    renderChart(index - 1);
+}
 
 
 
-
-function renderChart(index) { 
-    let pkm = allPKM[index]; 
-    const ctx = document.getElementById('stat').getContext('2d'); 
-    if (ctx) { 
+function renderChart(index) {
+    let pkm = allPKM[index];
+    const ctx = document.getElementById('stat').getContext('2d');
+    if (ctx) {
         new Chart(ctx, {
             type: 'bar',
             data: {
@@ -218,4 +210,4 @@ function renderChart(index) {
     } else {
         console.error("Failed to get context for canvas with id 'stat'");
     }
-}}
+}

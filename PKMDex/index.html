@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="
-    https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js
-    "></script>
+    https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">
+    </script>
 
 
 </head>
 
 <body class="bg-dark" onload="init()">
-  
+
     <div class="bigBody">
-  
-    <div class="FirstNavBar" > 
-        <input type="text" id="search" class="search" placeholder="Search Pokemon!" ="filterNames()">
-    </div>
-    <div class="MonsterBodyClass">
-        <div class="MonsterCard" id="MonsterCardID">
+
+        <div class="FirstNavBar">
+            <input type="text" id="search" class="search" placeholder="Search Pokemon!" oninput="filterNames()">
+        </div>
+        <div class="MonsterBodyClass">
+            <div class="MonsterCard" id="MonsterCardID">
+
+            </div>
+        </div>
+        <div class="dialog-bg d-none" id="dialog-bgID" onclick="closePKM()">
+
 
         </div>
     </div>
-<div class="dialog-bg d-none" id="dialog-bgID" onclick="closePKM()">
-    
-     
-</div>
-    </div>
-</div>
+   
 </body>
 
 </html>
